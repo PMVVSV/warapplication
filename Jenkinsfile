@@ -4,7 +4,7 @@ pipeline {
         maven 'MVN'
     }
     stages {
-        stage('01 - Git checkout'){
+        stage('01 - Git Checkout'){
             steps {
                 git 'https://github.com/PMVVSV/warapplication.git'
             }
