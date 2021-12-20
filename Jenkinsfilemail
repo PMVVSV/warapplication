@@ -1,0 +1,41 @@
+node
+{
+
+def mavenHome = tool name: "maven3.6.2"
+properties([[$class: 'JiraProjectProperty'], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
+
+ stage('CheckoutCode')
+ {
+  git branch: 'master' url: 'https://github.com/PMVVSV/warapplication.git'
+ }
+ 
+ stage('Build')
+ {
+ 
+ sh "${mavenHome}/bin/mvn clean package"
+ }
+ /*
+ stage('ExecuteSonarQubeReport')
+ {
+ sh "${mavenHome}/bin/mvn sonar:sonar"
+ }
+ 
+stage('UploadArtifactIntoNexus')
+ {
+ sh "${mavenHome}/bin/mvn deploy"
+ }
+ 
+ 
+ 
+ stage('SendEmailNotiifcation')
+ {
+ mail bcc: '', body: '''Build Over..
+
+ Regards,
+ Mithun Technologies,
+ 9980923226.''', cc: 'bhaskar0504@gmail.com', from: '', replyTo: '', subject: 'Build Over', to: 'devopstrainingblr@gmail.com'
+ }
+
+ */
+ 
+}
