@@ -23,18 +23,16 @@ stage('UploadArtifactIntoNexus')
  {
  sh "${mavenHome}/bin/mvn deploy"
  }
- 
+*/ 
  
  
  stage('SendEmailNotiifcation')
  {
- mail bcc: '', body: '''Build Over..
-
- Regards,
- Mithun Technologies,
- 9980923226.''', cc: 'bhaskar0504@gmail.com', from: '', replyTo: '', subject: 'Build Over', to: 'devopstrainingblr@gmail.com'
+  emailext body: '''Build is over
+  regards.
+  P.M.V.VARMA''', subject: 'BUILD STATUS', to: 'mveeravarma@gmail.com'
  }
 
- */
+ 
  
 }
