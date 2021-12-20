@@ -28,7 +28,7 @@ stage('UploadArtifactIntoNexus')
  
  stage('SendEmailNotiifcation')
  {
- emailext(attachLog: true, body: 'This is the extended email test', subject: 'This is the extended email test', to: 'mveeravarma@gmail.com')
+ emailext( attachLog: true, body: 'This is the extended email test', subject: 'This is the extended email test', to: 'mukunda.porenki@gmail.com' )
  }
 
  
